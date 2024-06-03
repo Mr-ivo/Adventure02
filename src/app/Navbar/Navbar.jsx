@@ -31,7 +31,7 @@ import DarkModeToggle from '../components/DarkModeToggle/DarkModeToggle';
           <div className={styles.hamburger}></div>
         </div>
         <DarkModeToggle />
-       <div className={`{styles.linksContainer} ${isOpen ? styles.active : ''}`} onClick={toggleMenu}>
+       <div className={`${styles.linksContainer} ${isOpen ? styles.active : ''}`} onClick={toggleMenu}>
       
       
         
