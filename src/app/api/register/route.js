@@ -1,7 +1,7 @@
-import connectDB from "@/utils/db";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import User from "@/models/User";
+import connectDB from "@/utils/db";
 
 export const POST = async (req, res, next) => {
   //get all the data recieve from the server
