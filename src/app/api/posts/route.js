@@ -1,6 +1,6 @@
-import Post from "@/app/models/Post";
+import Post from "@/models/Post";
 import { NextResponse } from "next/server";
-import connectDB from "../../../../utils/db";
+import connectDB from "../../utils/db";
 
 export const GET = async () => {
   try {
