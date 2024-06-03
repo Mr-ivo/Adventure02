@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { revalidateTag } from "next/cache";
 
-const page = () => {
+const Page = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -17,7 +17,6 @@ const page = () => {
       if (!res.ok) {
         throw new Error("Failed to fetch data");
       }
-    ;
     };
 
     getData();
@@ -52,4 +51,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Page;
