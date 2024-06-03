@@ -11,6 +11,7 @@ import "notyf/notyf.min.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useRouter();
 
   const { data: session } = useSession();
   console.log(session);
@@ -57,7 +58,6 @@ const Login = () => {
       </div>
     );
   }
-  const navigation = useRouter();
   const notyf = new Notyf({
     duration: 1000,
     position: {

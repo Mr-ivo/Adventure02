@@ -36,7 +36,7 @@ function Page() {
   return (
     <div className={styles.content}>
         <form className={styles.form} ref={form} onSubmit={handleEmail}  action="" method= "post">
-           <div children={styles.innit}>
+           <div className={styles.innit}>
             <h3 className={styles.contact}>Contact us</h3>
             <div>
             <input className={styles.name} type="text" name="name" placeholder="Your Name" />
