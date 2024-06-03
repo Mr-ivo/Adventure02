@@ -7,7 +7,7 @@ import { revalidateTag } from 'next/cache';
    
   
  async function getData() {
-  const res = await fetch("http://localhost:3000/api/posts", { next: {tags: ['collection']}})
+  const res = await fetch("/api/posts", { next: {tags: ['collection']}})
   
   revalidateTag('collection')
 
