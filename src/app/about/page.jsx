@@ -33,7 +33,7 @@ function page() {
         <h3 className={styles.first}>Q How can I contribute to AdventureAwaitsBlog?</h3>
         <p>A: We welcome guest contributions If you have a story to share, travel tips to offer, or photos to showcase, please contact us at <Link href="/contact">nzoggeivo@gmail.com</Link> for more information.</p>
         <h3 className={styles.first}>Q Can I use your photos for my own purposes?</h3>
-        <p>A: All photos  on AdventureAwaitsBlog are either taken by our team or properly credited to the original source. If you'd like to use any of our photos, please contact us for permission.</p>
+        <p>A: All photos  on AdventureAwaitsBlog are either taken by our team or properly credited to the original source. If you could like to use any of our photos, please contact us for permission.</p>
       </div>
     </div>
     </>
