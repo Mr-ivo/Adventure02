@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 
 
 
-function page() {
+function Page() {
   const form = useRef();
   const handleEmail = (e)=>{
     e.preventDefault();
@@ -63,4 +63,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

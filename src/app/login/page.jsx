@@ -5,41 +5,40 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Notyf } from 'notyf'
-import 'notyf/notyf.min.css';
+import { Notyf } from "notyf";
+import "notyf/notyf.min.css";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const { data: session } = useSession();
   console.log(session);
   if (session) {
-    const handleSubmit= async(e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       try {
         const res = await fetch("/api/auth/authentication", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             email,
             password,
           }),
-         
         });
         if (res.status === 200) {
           console.log(res);
-          navigation.push("/")
-          notyf.success("User successfully Logged")
-        }else{
-          notyf.error("User not found")
+          navigation.push("/");
+          notyf.success("User successfully Logged");
+        } else {
+          notyf.error("User not found");
         }
       } catch (error) {
         console.log(error);
       }
     };
-      const [email, setEmail] = useState('');
-      const [password, setPassword] = useState('');
-  
     return (
       <div className={styles.container}>
         {" "}
@@ -58,64 +57,60 @@ const Login = () => {
       </div>
     );
   }
-  const navigation = useRouter()
+  const navigation = useRouter();
   const notyf = new Notyf({
     duration: 1000,
     position: {
-      x: 'right',
-      y: 'top',
-    } 
+      x: "right",
+      y: "top",
+    },
   });
-  const handleSubmit= async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await fetch("/api/auth/authentication", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
           password,
         }),
-       
       });
       if (res.status === 200) {
         console.log(res);
-        navigation.push("/")
-        notyf.success("User successfully Logged")
-      }else{
-        notyf.error("User not found")
+        navigation.push("/");
+        notyf.success("User successfully Logged");
+      } else {
+        notyf.error("User not found");
       }
     } catch (error) {
       console.log(error);
     }
   };
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    
   return (
     <div className={styles.container}>
       {" "}
       <div className={styles.signCard}>
         <h1>Not signed in</h1> <br />{" "}
         <form className={styles.form} onSubmit={handleSubmit}>
-        <input
-            type='email'
-            placeholder='Email Address'
-            className={styles.input} 
+          <input
+            type="email"
+            placeholder="Email Address"
+            className={styles.input}
             required
-            onChange={(e)=>setEmail(e.target.value)}
-            />
-            <input
-            type='password'
-            placeholder='Password'
-            className={styles.input} 
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className={styles.input}
             required
-            onChange={(e)=>setPassword(e.target.value)}
-            />
-            <button className={styles.button}>Login</button>
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className={styles.button}>Login</button>
         </form>
         -or-
         <button className={styles.button} onClick={() => signIn("google")}>
