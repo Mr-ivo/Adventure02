@@ -16,30 +16,6 @@ const Login = () => {
   const { data: session } = useSession();
   console.log(session);
   if (session) {
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        const res = await fetch("/api/auth/authentication", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        });
-        if (res.status === 200) {
-          console.log(res);
-          navigation.push("/");
-          notyf.success("User successfully Logged");
-        } else {
-          notyf.error("User not found");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
     return (
       <div className={styles.container}>
         {" "}
@@ -58,14 +34,15 @@ const Login = () => {
       </div>
     );
   }
-  const notyf = new Notyf({
-    duration: 1000,
-    position: {
-      x: "right",
-      y: "top",
-    },
-  });
+ 
   const handleSubmit = async (e) => {
+    const notyf = new Notyf({
+      duration: 1000,
+      position: {
+        x: "right",
+        y: "top",
+      },
+    });
     e.preventDefault();
     try {
       const res = await fetch("/api/auth/authentication", {
