@@ -1,0 +1,133 @@
+.container{
+    background-color: #060505;
+    color: #fff;
+    transition: 0.3s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+    border-radius: 3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* box-shadow: 5px 3px 3px; */
+}
+
+.logo {
+    font-size: 18px;
+    margin-left: 45px;
+    color: #fff;
+    letter-spacing: .5px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.menuToggle {
+    display: none;
+    cursor: pointer;
+  }
+  .hamburger {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+  }
+  
+.linksContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+    gap: 10px;
+    font-family: 'sans-serif';
+    font-weight: 350;
+    margin-right: 40px;
+}
+.link{
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-left:20px;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@media screen and (max-width: 803px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      padding: 1px;
+    }
+    .menuToggle {
+        display: block;
+        text-align: center;
+        margin-left: 33px;
+      }
+    
+      .navLinks {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        margin-left: 30px;
+      }
+    
+      .navLinks.active {
+        display: flex;
+      }
+
+  
+  }
+  @media screen and (min-width: 804px) {
+    .navLinks {
+      justify-content: flex-end; 
+      margin-left: 10px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .logo {
+      margin-left: 12px;
+    }
+  
+  }
+  @media screen and (min-width: 805px) {
+    .navLinks {
+      justify-content: flex-end; 
+      margin-left: 10px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .logo {
+      margin-left: 12px;
+    }
+  
+  }
+  @media screen and (min-width: 885px) {
+    .navLinks {
+      margin-left: 6px;
+    }
+  
+  }
+  @media screen and (min-width: 901px) {
+    .navLinks {
+      justify-content: flex-end; 
+      margin-left: 6px;
+      font-size: 13px;
+      margin-right: 10px;
+    }
+    .logo {
+      margin-left: 12px;
+    }
+  
+  }
+  @media screen and (min-width: 1200px) {
+    .navLinks {
+      justify-content: flex-end; 
+      margin-right: 20px;
+    }
+  
+  }
+
+ 
+
+
+
+
+

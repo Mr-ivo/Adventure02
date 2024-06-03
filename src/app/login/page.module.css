@@ -1,0 +1,82 @@
+.container{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.button{
+    background-color: #007bff;
+    border: none;
+    width: 300px;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 9px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+ }
+ .nine {
+   color: #007bff;
+ }
+ .signCard{
+    width: 400px;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 9px;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border: 1px solid #007bff;
+ }
+ .profileImage{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-bottom: 40px;
+    background-color: #007bff;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #007bff;
+ }
+ .form {
+   width: 300px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.input {
+  padding: 20px;
+  background-color: transparent;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+.hot {
+    color: #007bff;
+}
+.button  {
+   background-color: #007bff;
+   border: none;
+   width: 300px;
+   color: #fff;
+   padding: 15px;
+   font-size: 18px;
+   border-radius: 9px;
+   margin-top: 10px;
+   cursor: pointer;
+   display: flex;
+   gap: 10;
+}

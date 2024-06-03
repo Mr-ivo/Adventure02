@@ -1,0 +1,72 @@
+
+.content {
+    padding: 20px;
+    margin-left: 35%;
+  }
+  .contact{
+    margin-bottom: 20px;
+    font-size: 20px;
+    margin-top: 150px;
+    margin-left: 13%;
+  }
+ 
+  .name  {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+  }
+
+  .email {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .tel{
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .desc {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000;
+    box-sizing: border-box;
+  }
+  .send {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    .content {
+      width: 60%;
+    }
+   
+  }
+  
+  

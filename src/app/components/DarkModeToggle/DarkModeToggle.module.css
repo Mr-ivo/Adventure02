@@ -1,0 +1,88 @@
+.container {
+   width: 60px;
+   height: 25px;
+   border: 1.5px solid;
+   border-radius: 30px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 5px;
+   position: relative; 
+   margin-left: 45%;
+}
+.ball {
+    width: 23px;
+    height: 21px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+   
+}
+@media screen and (min-width: 750px) {
+  .container {
+    margin-left: 40px;
+  }
+ 
+}
+@media screen and (min-width: 803px) {
+  .container {
+    margin-left: 10px;
+  }
+ 
+}
+@media screen and (max-width: 768px) {
+    .container {
+      align-items: center;
+      margin-left: 35px;
+    }
+  
+  }
+  
+  @media screen and (min-width: 885px) {
+    .container {
+      margin-left: 6px;
+    }
+  
+  }
+  @media screen and (min-width: 901px) {
+    .container {
+      margin-left: 8px;
+    }
+  
+  }
+  @media screen and (min-width: 880px) {
+    .container {
+      margin-left: 15px;
+    }
+  
+  }
+  @media screen and (min-width: 1260px) {
+    .container {
+      margin-left: 41%;
+    }
+  
+  }
+  @media screen and (min-width: 1854px) {
+    .container { 
+      margin-left: 59%;
+    }
+  
+  }
+  @media screen and (min-width: 1967px) {
+    .container { 
+      margin-left: 60%;
+    }
+  
+  }
+  @media screen and (min-width: 1990px) {
+    .container { 
+      margin-left: 60%;
+    }
+  
+  }
+  @media screen and (min-width: 2160px) {
+    .container { 
+      margin-left: 63%;
+    }
+  
+  }
