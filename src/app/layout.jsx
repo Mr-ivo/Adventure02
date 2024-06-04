@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </AuthProvider>
         </ThemeProvider>
-        <script src="//code.tidio.co/btk9udn3buasyxq0hrzuqpljc4ddlfhh.js" async></script>
+        <script src="//code.tidio.co/2ptymkyljlraxn5oip8wqz1pieww3ff7.js" async></script>
       </body>
     </html>
   );
