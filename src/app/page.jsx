@@ -39,8 +39,8 @@ const Page = () => {
                 className={styles.image}
                 src={item.img}
                 alt={item.title}
-                // width={}
-                // height={400}
+                width={400}
+                height={700}
               />
             </Link>
             <h1>{item.title}</h1>
