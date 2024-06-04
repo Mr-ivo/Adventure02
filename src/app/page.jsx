@@ -44,7 +44,7 @@ const Page = () => {
               />
             </Link>
             <h1>{item.title}</h1>
-            <p className={styles.write}>{item.description}</p>
+            {/* <p className={styles.write}>{item.description}</p> */}
           </div>
         ))}
       </div>
