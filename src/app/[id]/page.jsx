@@ -1,38 +1,44 @@
-import React from 'react'
-import styles from './page.module.css'
-import Image from 'next/image'
-import Navbar from '../Navbar/Navbar'
-// import Navbar from '@/components/Navbar/Navbar'
+import React, { useEffect, useState } from "react";
+import styles from "./page.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 
+const Page = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("/api/posts");
 
-async function getData() {
-  const result = await fetch("http://localhost:3000/api/posts")
-  if(!result.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return result.json()
-}
-const page = async ({params}) => {
-    const id = params.id;
-    const data = await getData(id);
+      const data = await res.json();
+      setData(data);
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+    };
+
+    getData();
+  }, []);
   return (
-    <div>
-
-        <Navbar color = 'chartreuse' />
-        <div className={styles.container}>
+    <div className={styles.container}>
+    {data.map((item) => (
+      <div className={styles.card} key={item.id}>
+        <Link href={`/${item.id}`}>
           <Image
             className={styles.image}
-            src={data.webformatURL}
-            alt={data.tags}
-            width={500}
-            height={300}
+            src={item.img}
+            alt={item.title}
+            width={400}
+            height={700}
           />
-       </div>
-     
-    
-    </div>
+        </Link>
+        <h1>{item.title}</h1>
+        {/* <p className={styles.write}>{item.description}</p> */}
+      </div>
+    ))}
+  </div>
   )
 }
 
-export default page
+export default Page

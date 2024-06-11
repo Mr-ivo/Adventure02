@@ -26,7 +26,7 @@ import DarkModeToggle from '../components/DarkModeToggle/DarkModeToggle';
   return (
     <>
     <div className={styles.container}>
-       <h1 className={styles.logo} ><Link href={"/"}>AdventureAwaitsBlog</Link></h1>
+       <h1 className={styles.logo} ><Link href={"/"}>UrbanCameroon</Link></h1>
        <div className={`${styles.menuToggle} ${isOpen ? styles.open : ''}`} onClick={toggleMenu}>
           <div className={styles.hamburger}></div>
         </div>
