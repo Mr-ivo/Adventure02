@@ -8,45 +8,7 @@
   margin-top: 5%;
   display: flex;
 }
-.foot {
-  margin-left: 20%;
-  margin-top: 20%;
-  cursor: pointer;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 30px;
-}
-.uk {
-  margin-left: 24%;
-  cursor: pointer;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.message {
-  margin-left: 6%;
-  margin-top: 1%;
-  cursor: pointer;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 15px;
-}
-.email {
-  margin-left: 12%;
-  margin-top: 3%;
-  cursor: pointer;
-  padding: 15px;
-  background-color: orange;
-  border-radius: 5px;
-  color: #fff;
-  margin-bottom: 19px;
-}
-.sign {
-  margin-left: 1%;
-  margin-top: 3%;
-  cursor: pointer;
-  padding: 13px;
-  background-color: orange;
-  border-radius: 5px;
-  color: #bab4b4;
-  margin-bottom: 19px;
-}
+
 .card {
   width: 250px;
   height: 250px;
@@ -62,7 +24,7 @@
 .image {
   border-radius: 8px;
   object-fit: contain;
-  max-width: fit-content;
+  max-width: 600;
 }
 
   
