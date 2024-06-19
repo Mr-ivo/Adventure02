@@ -98,6 +98,7 @@
 .image {
     border-radius: 8px;
     object-fit: contain;
+    max-width: 700;
 }
 .write {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
