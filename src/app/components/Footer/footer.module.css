@@ -38,12 +38,7 @@
     padding: 5px 10px;
     cursor: pointer;
   }
-  @media screen and (min-width: 488px) {
-    .container {
-      margin-right: 4%;
-    }
-   
-  }
+
   @media screen and (min-width: 1069px) {
     .container {
       margin-left: 10%;
@@ -58,7 +53,7 @@
   }
   @media screen and (min-width: 2160px) {
     .container {
-      margin-left: 30%;
+      margin-left: 25%;
     }
    
   }
