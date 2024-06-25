@@ -39,8 +39,8 @@
     cursor: pointer;
   }
   @media screen and (min-width: 488px) {
-    .footer {
-      margin-right: 10%;
+    .icons{
+      margin-right: 5%;
     }
    
   }
