@@ -1,12 +1,15 @@
 .footer {
     background-color: #007bff;
     color: #000;
+    display: grid;
+    place-content: center;
     padding: 20px 0;
   }
   .container {
     max-width: 800px;
     margin: 0 auto;
     display: flex;
+    /* gap: 1em; */
     justify-content: space-between;
     align-items: center;
   }
@@ -14,11 +17,11 @@
     color: #fff;
     font-size: 1.5rem;
     display: flex;
-    margin-left: 40%;
-    gap: 30px;
+    /* margin-left: 40%; */
+    gap: 20px;
 
   }
- 
+/*  
   .emailBox {
     display: flex;
     align-items: center;
@@ -37,7 +40,7 @@
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-  }
+  } */
   /* @media screen and (min-width: 488px) {
     .icons{
       margin-right: 5%;

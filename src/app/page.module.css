@@ -1,13 +1,20 @@
 .backgroundImage {
     background-image: url(../../public/for-kids-3.jpg);
     background-size: cover;
-    background-position: cover;
-    height: 550px;
+    /* background-position:; */
+    height: 100svh;
     /* background-color: red;/ */
-    margin-top: 60px;
     background-repeat: no-repeat;
     cursor: pointer;
+    position: relative;
 
+}
+.backgroundImage::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(90deg,#04213e 20%,rgba(4,33,62,.85) 42%,rgba(4,33,62,.2));
 }
 .desc {
     text-align: center;
@@ -38,10 +45,10 @@
     height: 100%;
     justify-content: center;
        align-items: center;
-    flex-wrap: wrap;
     overflow: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(400px , 1fr));
     margin-top: 5%;
-    display: flex;
+    display: grid;
   }
   .foot {
     margin-left: 20%;
@@ -83,8 +90,8 @@
     margin-bottom: 19px;
   }
   .card {
-    width: 250px;
-    height: 250px;
+    /* width: 250px; */
+    height: 200px;
     box-shadow: 2px 2px 20px black;
     object-fit: cover;
     margin-top: 30px;
@@ -93,11 +100,24 @@
     margin-top:5%;
     max-width: 800;
     margin: 8px;
+    padding: .4em;
+    display: flex;
+    gap: .5em;
     
 }
+.info{
+  width:100%;
+}
+/* .card:first-child{
+  grid-column: span 2;
+  width: 70%;
+  height: 300px;
+} */
 .image {
     border-radius: 8px;
-    object-fit: contain;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     max-width: 700;
 }
 .write {
