@@ -4,6 +4,7 @@ import styles from '@/app/contact/page.module.css'
 import { Notyf } from 'notyf'
 import 'notyf/notyf.min.css';
 import emailjs from '@emailjs/browser';
+import Navbar from '../Navbar/Navbar';
 
 
 
@@ -34,6 +35,8 @@ function Page() {
     notyf.success('Thank you for contacting us')
   }
   return (
+    <>
+    <Navbar bg={"black"} />
     <div className={styles.content}>
         <form className={styles.form} ref={form} onSubmit={handleEmail}  action="" method= "post">
            <div className={styles.innit}>
@@ -59,6 +62,7 @@ function Page() {
 
         </form>
     </div>
+    </>
     
   )
 }

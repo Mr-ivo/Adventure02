@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import styles from './page.module.css'
+import Navbar from '../Navbar/Navbar';
 
 const categories = [
   {
@@ -31,6 +32,8 @@ const categories = [
 
 const Categories = () => {
   return (
+    <>
+    <Navbar bg={"black"} />
     <div className={styles.container}>
       <section className={styles.intro}>
         <h1>Explore Our Categories</h1>
@@ -46,6 +49,7 @@ const Categories = () => {
         ))}
       </section>
     </div>
+    </>
   );
 };
 

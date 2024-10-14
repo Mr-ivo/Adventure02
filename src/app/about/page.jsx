@@ -1,13 +1,16 @@
 import React from 'react'
 import styles from "./page.module.css"
 import Link from 'next/link';
+import Navbar from '../Navbar/Navbar';
 
 
 function page() {
   return (
     <>
+    <Navbar bg={"black"} />
     <div>
         <div className={styles.container}>
+        {" "}
         <h1 className={styles.first}>About Us</h1>
         <p className={styles.desc}>Welcome to AdventureAwaitsBlog, your ultimate guide to exploring the vibrant cities of Cameroon Our mission is to showcase the beauty, culture, and diversity of Cameroon cities through engaging content, stunning photography, and practical travel tips.</p>
         <p className={styles.desc}>Whether you are a seasoned traveler, a culture enthusiast, or simply curious about life in Cameroon, you will find something of interest here. Join us as we embark on a journey to discover the hidden gems, iconic landmarks, and unique experiences that make Cameroon cities truly special.</p>
