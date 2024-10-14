@@ -1,44 +1,65 @@
-'use client'
+'use client';
+
 import React, { useEffect, useState } from "react";
-import styles from "./page.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import Navbar from "../Navbar/Navbar"; // Assuming Navbar component exists
+import styles from "./page.module.css"; // Use specific styles for detail page
 
+const Page = ({ params }) => {
+  const [item, setItem] = useState(null);
+  const { id } = params; // Get the id from dynamic routing
 
-const Page = () => {
-  const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("/api/posts");
-
-      const data = await res.json();
-      setData(data);
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
+      const res = await fetch(`/api/posts/${id}`); // Fetch only the image data by id
+      if (res.ok) {
+        const data = await res.json();
+        console.log(data); // Log the fetched data to the console
+        setItem(data);
+      } else {
+        console.error("Failed to fetch data");
       }
     };
 
-    getData();
-  }, []);
+    if (id) {
+      getData(); // Fetch data only if id is available
+    }
+  }, [id]);
+
+  useEffect(() => {
+    // Log the item to the console whenever it changes
+    console.log("Current item:", item);
+  }, [item]); // This will log whenever `item` is updated
+
+  if (!item) {
+    return <p>Loading...</p>; // Loading state
+  }
+
   return (
-    <div className={styles.container}>
-    {data.map((item) => (
-      <div className={styles.card} key={item.id}>
-        <Link href={`/${item.id}`}>
+    <>
+      <Navbar />
+      <div className={styles.detailContainer}>
+        <div className={styles.imageWrapper}>
           <Image
-            className={styles.image}
             src={item.img}
             alt={item.title}
-            width={400}
-            height={700}
+            width={800}
+            height={600}
+            className={styles.detailImage}
           />
-        </Link>
-        <h1>{item.title}</h1>
+        </div>
+        <div className={styles.details}>
+          <h1 className={styles.title}>{item.title || "Image Title"}</h1>
+          <p className={styles.description}>{item.description || "No description available."}</p>
+        </div>
       </div>
-    ))}
-  </div>
-  )
-}
+    </>
+  );
+};
 
-export default Page
+export default Page;
+
+
+
+
+
