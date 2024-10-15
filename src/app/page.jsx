@@ -43,8 +43,8 @@ const Page = () => {
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
           {data.map((item) => (
-            <div className={styles.card} key={item.id}>
-              <Link href={`/${item.id}`}>
+            <div className={styles.card} key={item._id}>
+              <Link href={`/${item._id}`}>
                 <Image
                   className={styles.image}
                   src={item.img}
