@@ -6,7 +6,7 @@ import DarkModeToggle from "../components/DarkModeToggle/DarkModeToggle";
 import Image from "next/image";
 
 const links = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "/" }, 
   { name: "About", href: "/about" },
   { name: "Categories", href: "/categories" },
   { name: "Contact us ", href: "/contact" },

@@ -1,6 +1,6 @@
 import Post from "@/models/Post";
-import { NextResponse } from "next/server";
 import connectDB from "../../../utils/db";
+import { NextResponse } from "next/server";
 
 export const GET = async () => {
   try {
@@ -8,6 +8,7 @@ export const GET = async () => {
     await connectDB();
     // find all post in the database
     const posts = await Post.find();
+    console.log(posts)
     // return the posts as a json
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (error) {
