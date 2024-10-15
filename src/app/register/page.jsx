@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
+import Navbar from '../Navbar/Navbar';
 
 
 export default function Page() {
@@ -70,6 +71,8 @@ const handleSubmit = async (e) => {
 }
 };
   return (
+    <>
+    <Navbar bg={"black"} />
     <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit}>
             <h3 className={styles.contact}>Register</h3>
@@ -100,6 +103,7 @@ const handleSubmit = async (e) => {
         </form>
 
     </div>
+    </>
   )
 }
 

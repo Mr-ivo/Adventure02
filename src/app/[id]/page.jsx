@@ -1,44 +1,62 @@
-'use client'
+'use client';
 import React, { useEffect, useState } from "react";
-import styles from "./page.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import Navbar from "../Navbar/Navbar"; 
+import styles from "./page.module.css"; 
 
+const getData = async (id) => {
+    try {
+        const res = await fetch(`/api/posts/${id}`);
+        if (!res.ok) { 
+            console.log("HTTP Error:", res.statusText);
+            return null;
+        }  
+        return await res.json(); 
+    } catch (error) {
+        console.error("Failed to fetch data", error);
+        return null;
+    }
+};
 
-const Page = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const getData = async () => {
-      const res = await fetch("/api/posts");
+const Page = ({ params }) => { 
+    const { id } = params;
+    const [data, setData] = useState(null); 
 
-      const data = await res.json();
-      setData(data);
+    useEffect(() => {
+        const fetchData = async () => {
+            const fetchedData = await getData(id);
+            setData(fetchedData);
+        };
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-    };
+        if (id) {
+            fetchData();
+        }
+    }, [id]);
 
-    getData();
-  }, []);
-  return (
-    <div className={styles.container}>
-    {data.map((item) => (
-      <div className={styles.card} key={item.id}>
-        <Link href={`/${item.id}`}>
-          <Image
-            className={styles.image}
-            src={item.img}
-            alt={item.title}
-            width={400}
-            height={700}
-          />
-        </Link>
-        <h1>{item.title}</h1>
-      </div>
-    ))}
-  </div>
-  )
-}
+    if (!data) {
+        return <div>Loading...</div>;
+    }
 
-export default Page
+    return (
+        <>
+            <Navbar />
+            <div className={styles.detailContainer}>
+                <div className={styles.imageWrapper}>
+                    <Image
+                        src={data?.img || "/placeholder.png"} 
+                        alt={data?.title || "Image"}
+                        width={800}
+                        height={600}
+                        className={styles.detailImage}
+                    />
+                </div>
+                <div className={styles.details}>
+                    <h1 className={styles.title}>{data?.title || "Image Title"}</h1>
+                    <p className={styles.description}>{data?.description || "No description available."}</p>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Page;

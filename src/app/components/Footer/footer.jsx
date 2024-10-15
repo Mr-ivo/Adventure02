@@ -7,16 +7,48 @@ import { Facebook, Instagram } from 'react-feather';
 function Footer() {
   return (
     <footer className={styles.footer}>
-        <div className={styles.container}>
-        <div className={styles.icons}>
-          <Link href="https://www.facebook.com/watty.mc?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer"><Facebook /></Link>
-          <Link href="https://www.instagram.com/wattymc7?igsh=MWF1cWlsMHI2b2N3NA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer"><Instagram /></Link>
-          <Link href="https://www.tiktok.com/@wattymc5?_t=8mJa7Ke6fFl&_r=1" target="_blank" rel="noopener noreferrer"><AiOutlineTikTok /></Link>
-          <Link href="679373244" target="_blank" rel="noopener noreferrer"><AiOutlineWhatsApp /></Link>
-          <Link href="mailto:your-nzoggeivo@gmail.com"><AiOutlineMail /></Link>
+    <div className={styles.footerContainer}>
+      <div className={styles.footerSection}>
+        <h2 className={styles.footerTitle}>About Us</h2>
+        <p className={styles.footerText}>
+          Welcome to our blog! Here we share the latest insights, tutorials, and stories. Stay tuned for more updates.
+        </p>
+      </div>
+  
+      <div className={styles.footerSection}>
+        <h2 className={styles.footerTitle}>Quick Links</h2>
+        <ul className={styles.footerLinks}>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/blog">Blog</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+          <li><Link href="/privacy">Privacy Policy</Link></li>
+        </ul>
+      </div>
+  
+      <div className={styles.footerSection}>
+        <h2 className={styles.footerTitle}>Follow Us</h2>
+        <div className={styles.socialIcons}>
+          <Link href="https://facebook.com">
+            <Facebook />
+          </Link>
+          <Link href="https://twitter.com">
+            <i className="fab fa-twitter"></i>
+          </Link>
+          <Link href="https://instagram.com">
+            <i className="fab fa-instagram"></i>
+          </Link>
+          <Link href="https://linkedin.com">
+            <i className="fab fa-linkedin-in"></i>
+          </Link>
         </div>
       </div>
-    </footer>
+    </div>
+  
+    <div className={styles.footerBottom}>
+      <p>&copy; 2024 Your Blog. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
   )
 }
 
