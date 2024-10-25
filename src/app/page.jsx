@@ -63,7 +63,7 @@ const Page = () => {
           {filteredCities.map((item) => (
             <div className={styles.card} key={item._id}>
               <Link href={`/${item._id}`}>
-                <Image
+                <img
                   className={styles.image}
                   src={item.img}
                   alt={`Image of ${item.title}`}
