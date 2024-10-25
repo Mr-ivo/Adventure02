@@ -9,6 +9,8 @@ const Page = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredCities, setFilteredCities] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -17,38 +19,54 @@ const Page = () => {
       if (!res.ok) {
         setError("Failed to fetch data");
         setLoading(false);
-        return; // Exit if fetch failed
+        return;
       }
 
       const data = await res.json();
       setData(data);
-      setLoading(false); // Set loading to false after data is fetched
+      setFilteredCities(data); 
+      setLoading(false);
     };
 
     getData();
   }, []);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const filtered = data.filter((city) =>
+      city.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredCities(filtered);
+  };
+
   return (
     <>
       <Navbar />
       <div className={styles.backgroundImage}></div>
-      <div className={styles.hope}>
-        {/* <p className={styles.desc}>
-          Join me for a journey Through Cameroon <br />
-          vibrant cities.
-        </p> */}
-      </div>
+
+      <form onSubmit={handleSearch} className={styles.searchForm}>
+        <input
+          type="text"
+          placeholder="Search for a city..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className={styles.searchInput}
+        />
+        <button type="submit" className={styles.searchButton}>Search</button>
+      </form>
+
+      <div className={styles.hope}></div>
       <div className={styles.container}>
         <div className={styles.grid}>
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
-          {data.map((item) => (
+          {filteredCities.map((item) => (
             <div className={styles.card} key={item._id}>
               <Link href={`/${item._id}`}>
                 <Image
                   className={styles.image}
                   src={item.img}
-                  alt={`Image of ${item.title}`} // Improved alt text
+                  alt={`Image of ${item.title}`}
                   width={400}
                   height={700}
                 />
@@ -57,7 +75,6 @@ const Page = () => {
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem laboriosam minima eligendi.</p>
               </div>
               <h1>{item.info_title}</h1>
-              {/* <p className={styles.write}>{item.description}</p> */}
             </div>
           ))}
         </div>
@@ -67,4 +84,3 @@ const Page = () => {
 };
 
 export default Page;
-
