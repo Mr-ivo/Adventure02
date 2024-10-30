@@ -45,7 +45,7 @@ function Footer() {
     </div>
   
     <div className={styles.footerBottom}>
-      <p>&copy; 2024 Your Blog. All Rights Reserved.</p>
+      <p>&copy  2024 Your Blog. All Rights Reserved.</p>
     </div>
   </footer>
   
