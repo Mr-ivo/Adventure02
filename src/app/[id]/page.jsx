@@ -50,7 +50,7 @@ const Page = ({ params }) => {
     getData();
   }, []);
   useEffect(() => {
-    let filteredItems = products.filter((item) => item.name == data.name);
+    let filteredItems = products.filter((item) => item.name == data?.name);
     setRelatedProducts(filteredItems);
     console.log(filteredItems);
   }, [products]);
@@ -73,23 +73,23 @@ const Page = ({ params }) => {
           />
         </div>
         <div className={styles.details}>
-          <h1 className={styles.title}>{data?.title || "Image Title"}</h1>
+          <h1 className={styles.title}>{data?.title ||""}</h1>
           <p className={styles.description}>
-            {data?.description || "No description available."}
+            
+            Douala, the vibrant economic capital of Cameroon, is a bustling city rich in history and culture. Situated along the Atlantic coast, Douala serves as the country's primary port and gateway to Central Africa. It blends traditional African charm with modernity, featuring diverse neighborhoods, dynamic markets, and an energetic nightlife. Visitors can explore historic landmarks such as the La Pagode building, take in scenic views from the Wouri River, or experience the bustling Mboppi market. Known for its hospitality, Douala is a melting pot of cultures, offering a wide variety of culinary experiences, from fresh seafood to delicious Cameroonian street food.
           </p>
         </div>
       </div>
-      <h1>Related Products</h1>
-      <div>
+      <h1  className={styles.relatedProductsTitle}>Related Products</h1>
+      <div className={styles.relatedProductsContainer}>
         {relatedProducts.map((item) => (
-          <div key={item._id}>
+          <div key={item._id} className={styles.productCard}>
             <Image
               src={item?.img || ""}
               alt={item?.name || "Image"}
-              width={100}
-              height={100}
+              width={300}
+              height={300}
             />
-            {/* <h2>{item?.descripto}</h2> */}
           </div>
         ))}
       </div>

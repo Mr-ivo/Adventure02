@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./footer.module.css"
 import Link from 'next/link'
 import { AiOutlineMail, AiOutlineTikTok, AiOutlineWhatsApp } from 'react-icons/ai';
-import { Facebook, Instagram } from 'react-feather';
+import { Facebook, Instagram, Linkedin, Twitter } from 'react-feather';
 
 function Footer() {
   return (
@@ -32,13 +32,13 @@ function Footer() {
             <Facebook />
           </Link>
           <Link href="https://twitter.com">
-            <i className="fab fa-twitter"></i>
+            <Twitter />
           </Link>
           <Link href="https://instagram.com">
-            <i className="fab fa-instagram"></i>
+            <Instagram />
           </Link>
           <Link href="https://linkedin.com">
-            <i className="fab fa-linkedin-in"></i>
+            <Linkedin />
           </Link>
         </div>
       </div>

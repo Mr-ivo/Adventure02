@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./Navbar/Navbar";
 
@@ -24,7 +24,7 @@ const Page = () => {
 
       const data = await res.json();
       setData(data);
-      setFilteredCities(data); 
+      setFilteredCities(data.slice(0, 16));
       setLoading(false);
     };
 
@@ -52,7 +52,9 @@ const Page = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className={styles.searchInput}
         />
-        <button type="submit" className={styles.searchButton}>Search</button>
+        <button type="submit" className={styles.searchButton}>
+          Search
+        </button>
       </form>
 
       <div className={styles.hope}></div>
@@ -72,9 +74,11 @@ const Page = () => {
                 />
               </Link>
               <div className={styles.info}>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem laboriosam minima eligendi.</p>
+                {/* <p>
+                Douala, the vibrant economic capital of Cameroon, is a bustling city rich in history and culture. Situated along the Atlantic coast, Douala serves as the country's primary port and gateway to Central Africa.
+                </p> */}
               </div>
-              <h1>{item.info_title}</h1>
+              <p className={styles.des}>{item.description}</p>
             </div>
           ))}
         </div>

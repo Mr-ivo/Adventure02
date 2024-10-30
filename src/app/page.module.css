@@ -117,6 +117,9 @@
   background-color: #f0f0f0;
   border-radius: 5px;
 }
+.des {
+  font-size: .8rem;
+}
 
 
 /* Responsive Design */
