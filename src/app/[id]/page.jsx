@@ -76,7 +76,7 @@ const Page = ({ params }) => {
           <h1 className={styles.title}>{data?.title ||""}</h1>
           <p className={styles.description}>
             
-            Douala, the vibrant economic capital of Cameroon, is a bustling city rich in history and culture. Situated along the Atlantic coast, Douala serves as the country's primary port and gateway to Central Africa. It blends traditional African charm with modernity, featuring diverse neighborhoods, dynamic markets, and an energetic nightlife. Visitors can explore historic landmarks such as the La Pagode building, take in scenic views from the Wouri River, or experience the bustling Mboppi market. Known for its hospitality, Douala is a melting pot of cultures, offering a wide variety of culinary experiences, from fresh seafood to delicious Cameroonian street food.
+            Douala, the vibrant economic capital of Cameroon is a bustling city rich in history and culture. Situated along the Atlantic coast Douala serves as the country primary port and gateway to Central Africa. It blends traditional African charm with modernity featuring diverse neighborhoods dynamic markets and an energetic nightlife. Visitors can explore historic landmarks such as the La Pagode building take in scenic views from the Wouri River or experience the bustling Mboppi market. Known for its hospitality Douala is a melting pot of cultures offering a wide variety of culinary experiences from fresh seafood to delicious Cameroonian street food.
           </p>
         </div>
       </div>
