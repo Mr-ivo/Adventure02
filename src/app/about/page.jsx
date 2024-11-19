@@ -66,7 +66,7 @@ const Page = () => {
             <h2 className={styles.sectionTitle}>Testimonials</h2>
             <div className={styles.testimonialCard}>
               <p className={styles.testimonialText}>
-                "AdventureAwaitsBlog has been an invaluable resource for planning my trip to Cameroon. The detailed travel guides and beautiful photography have inspired me to explore new destinations and immerse myself in the local culture."
+                UrbanCamerron has been an invaluable resource for planning my trip to Cameroon. The detailed travel guides and beautiful photography have inspired me to explore new destinations and immerse myself in the local culture.
               </p>
               <footer className={styles.testimonialAuthor}>
                 - Kenna Caleb
