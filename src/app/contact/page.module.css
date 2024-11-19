@@ -1,72 +1,158 @@
-
 .content {
-    padding: 20px;
-    margin-left: 35%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #0f172a; /* Dark blue background */
+}
+
+.form {
+  background: #1e293b; /* Darker blue for form background */
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #334155; /* Subtle border */
+}
+
+.contact {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #f8fafc; /* Light text */
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #334155; /* Slightly lighter than form background */
+  border: 1px solid #475569;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #94a3b8;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #4f46e5; /* Indigo highlight */
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error {
+  border-color: #dc2626; /* Red for errors */
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #4f46e5; /* Indigo button */
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  background-color: #4338ca; /* Darker indigo on hover */
+}
+
+.button:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+.loading {
+  color: transparent;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  .contact{
-    margin-bottom: 20px;
-    font-size: 20px;
-    margin-top: 150px;
-    margin-left: 13%;
-  }
- 
-  .name  {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    
+}
+
+/* Hover effects */
+.input:hover,
+.textarea:hover {
+  border-color: #6366f1;
+}
+
+/* Focus within effect for input groups */
+.inputGroup:focus-within .label {
+  color: #4f46e5;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
   }
 
-  .email {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  .tel{
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  .desc {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #000;
-    box-sizing: border-box;
-  }
-  .send {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    background-color: #007bff;
-    border-radius: 4px;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin-bottom: 30px;
+  .form {
+    padding: 1.5rem;
   }
 
-  @media screen and (min-width: 1000px) {
-    .content {
-      width: 60%;
-    }
-   
+  .contact {
+    font-size: 1.75rem;
   }
-  
-  
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+  .input,
+  .textarea {
+    background-color: #334155;
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+    color: #94a3b8;
+  }
+}

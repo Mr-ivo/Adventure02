@@ -1,0 +1,28 @@
+.languageSwitch {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .select {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--border-color, #e2e8f0);
+    color: inherit;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 80px;
+  }
+  
+  .select:hover {
+    background: var(--hover-bg, rgba(0, 0, 0, 0.05));
+  }
+  
+  .select:focus {
+    outline: none;
+    border-color: var(--focus-border, #3b82f6);
+    box-shadow: 0 0 0 2px var(--focus-shadow, rgba(59, 130, 246, 0.1));
+  }

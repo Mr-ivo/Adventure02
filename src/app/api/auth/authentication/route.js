@@ -10,7 +10,7 @@ export const POST = async (req, res, next) => {
   // check if user exists
   try {
     const isUser = await User.findOne({ email: email });
-    if (User) {
+    if (isUser) {
       const isUserPassword = isUser.password;
       const isUserPasswordMatch = bcrypt.compareSync(password, isUserPassword);
       if (isUserPasswordMatch) {

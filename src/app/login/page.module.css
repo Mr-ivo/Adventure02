@@ -1,82 +1,278 @@
-.container{
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-
-.button{
-    background-color: #007bff;
-    border: none;
-    width: 300px;
-    color: #fff;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 9px;
-    margin-top: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.main {
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+   background-color: #f9fafb;
+   padding-top: 80px;
  }
- .nine {
-   color: #007bff;
+ 
+ :global(.dark) .main {
+   background-color: #111827;
  }
- .signCard{
-    width: 400px;
-    color: #fff;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 9px;
-    margin-top: 40px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    border: 1px solid #007bff;
+ 
+ .loginContainer,
+ .profileContainer {
+   width: 100%;
+   max-width: 420px;
  }
- .profileImage{
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    margin-bottom: 40px;
-    background-color: #007bff;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #007bff;
+ 
+ .loginCard,
+ .profileCard {
+   background-color: white;
+   padding: 2rem;
+   border-radius: 1rem;
+   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
  }
+ 
+ :global(.dark) .loginCard,
+ :global(.dark) .profileCard {
+   background-color: #1f2937;
+ }
+ 
+ .title {
+   font-size: 1.875rem;
+   font-weight: 700;
+   color: #111827;
+   margin-bottom: 0.5rem;
+   text-align: center;
+ }
+ 
+ :global(.dark) .title {
+   color: #f9fafb;
+ }
+ 
+ .subtitle {
+   color: #6b7280;
+   text-align: center;
+   margin-bottom: 2rem;
+ }
+ 
+ :global(.dark) .subtitle {
+   color: #9ca3af;
+ }
+ 
  .form {
-   width: 300px;
    display: flex;
    flex-direction: column;
-   gap: 20px;
-}
-.input {
-  padding: 20px;
-  background-color: transparent;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #007bff;
-}
-.hot {
-    color: #007bff;
-}
-.button  {
-   background-color: #007bff;
-   border: none;
-   width: 300px;
-   color: #fff;
-   padding: 15px;
-   font-size: 18px;
-   border-radius: 9px;
-   margin-top: 10px;
-   cursor: pointer;
+   gap: 1rem;
+   margin-bottom: 1.5rem;
+ }
+ 
+ .inputGroup {
+   position: relative;
+ }
+ 
+ .inputIcon {
+   position: absolute;
+   left: 1rem;
+   top: 50%;
+   transform: translateY(-50%);
+   color: #9ca3af;
+ }
+ 
+ .input {
+   width: 100%;
+   padding: 0.75rem 1rem 0.75rem 2.75rem;
+   border: 1px solid #e5e7eb;
+   border-radius: 0.5rem;
+   background-color: #f9fafb;
+   color: #111827;
+   transition: all 0.2s;
+ }
+ 
+ :global(.dark) .input {
+   background-color: #374151;
+   border-color: #4b5563;
+   color: #f9fafb;
+ }
+ 
+ .input:focus {
+   outline: none;
+   border-color: #3b82f6;
+   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+ }
+ 
+ .submitButton {
    display: flex;
-   gap: 10;
-}
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+   width: 100%;
+   padding: 0.75rem;
+   background-color: #3b82f6;
+   color: white;
+   border: none;
+   border-radius: 0.5rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.2s;
+ }
+ 
+ .submitButton:hover {
+   background-color: #2563eb;
+ }
+ 
+ .submitButton:disabled {
+   opacity: 0.7;
+   cursor: not-allowed;
+ }
+ 
+ .divider {
+   position: relative;
+   text-align: center;
+   margin: 1.5rem 0;
+ }
+ 
+ .divider::before,
+ .divider::after {
+   content: "";
+   position: absolute;
+   top: 50%;
+   width: 45%;
+   height: 1px;
+   background-color: #e5e7eb;
+ }
+ 
+ :global(.dark) .divider::before,
+ :global(.dark) .divider::after {
+   background-color: #4b5563;
+ }
+ 
+ .divider::before {
+   left: 0;
+ }
+ 
+ .divider::after {
+   right: 0;
+ }
+ 
+ .divider span {
+   background-color: white;
+   padding: 0 1rem;
+   color: #6b7280;
+   font-size: 0.875rem;
+ }
+ 
+ :global(.dark) .divider span {
+   background-color: #1f2937;
+   color: #9ca3af;
+ }
+ 
+ .googleButton {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.75rem;
+   width: 100%;
+   padding: 0.75rem;
+   background-color: white;
+   border: 1px solid #e5e7eb;
+   border-radius: 0.5rem;
+   color: #374151;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.2s;
+ }
+ 
+ :global(.dark) .googleButton {
+   background-color: #374151;
+   border-color: #4b5563;
+   color: #f9fafb;
+ }
+ 
+ .googleButton:hover {
+   background-color: #f9fafb;
+ }
+ 
+ :global(.dark) .googleButton:hover {
+   background-color: #4b5563;
+ }
+ 
+ .profileImageWrapper {
+   position: relative;
+   width: 96px;
+   height: 96px;
+   margin: 0 auto 1.5rem;
+ }
+ 
+ .profileImage {
+   border-radius: 50%;
+   object-fit: cover;
+ }
+ 
+ .welcomeText {
+   text-align: center;
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: #111827;
+   margin-bottom: 0.5rem;
+ }
+ 
+ :global(.dark) .welcomeText {
+   color: #f9fafb;
+ }
+ 
+ .userEmail {
+   text-align: center;
+   color: #6b7280;
+   margin-bottom: 1.5rem;
+ }
+ 
+ :global(.dark) .userEmail {
+   color: #9ca3af;
+ }
+ 
+ .signOutButton {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+   width: 100%;
+   padding: 0.75rem;
+   background-color: #ef4444;
+   color: white;
+   border: none;
+   border-radius: 0.5rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.2s;
+ }
+ 
+ .signOutButton:hover {
+   background-color: #dc2626;
+ }
+ 
+ .loading {
+   display: inline-flex;
+   align-items: center;
+ }
+ 
+ .loading::after {
+   content: "";
+   width: 1rem;
+   height: 1rem;
+   margin-left: 0.5rem;
+   border: 2px solid #ffffff;
+   border-radius: 50%;
+   border-top-color: transparent;
+   animation: spin 1s linear infinite;
+ }
+ 
+ @keyframes spin {
+   to {
+     transform: rotate(360deg);
+   }
+ }
+ 
+ @media (max-width: 640px) {
+   .main {
+     padding: 1rem;
+   }
+ 
+   .loginCard,
+   .profileCard {
+     padding: 1.5rem;
+   }
+ }

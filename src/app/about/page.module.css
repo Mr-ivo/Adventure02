@@ -1,26 +1,191 @@
+.main {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding-top: 80px;
+}
+
+:global(.dark) .main {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.introText {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #4B5563;
+}
+
+:global(.dark) .introText {
+  color: #D1D5DB;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 1.5rem;
+}
+
+:global(.dark) .sectionTitle {
+  color: #F9FAFB;
+}
+
+.content {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #4B5563;
+}
+
+:global(.dark) .content {
+  color: #D1D5DB;
+}
+
+.content p {
+  margin-bottom: 1rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #F3F4F6;
+  border-radius: 0.5rem;
+  color: #4B5563;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+:global(.dark) .socialLink {
+  background-color: #1F2937;
+  color: #D1D5DB;
+}
+
+.socialLink:hover {
+  background-color: #E5E7EB;
+  transform: translateY(-2px);
+}
+
+:global(.dark) .socialLink:hover {
+  background-color: #374151;
+}
+
+.testimonialCard {
+  background-color: #F9FAFB;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .testimonialCard {
+  background-color: #1F2937;
+}
+
+.testimonialText {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  font-style: italic;
+  color: #4B5563;
+  margin-bottom: 1rem;
+}
+
+:global(.dark) .testimonialText {
+  color: #D1D5DB;
+}
+
+.testimonialAuthor {
+  font-weight: 600;
+  color: #3B82F6;
+}
+
+.faqGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.faqCard {
+  background-color: #F9FAFB;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark) .faqCard {
+  background-color: #1F2937;
+}
+
+.faqQuestion {
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 0.75rem;
+}
+
+:global(.dark) .faqQuestion {
+  color: #F9FAFB;
+}
+
+.faqAnswer {
+  color: #4B5563;
+  line-height: 1.6;
+}
+
+:global(.dark) .faqAnswer {
+  color: #D1D5DB;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
   }
-  
-  .first {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007bff;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    cursor: pointer;
+
+  .title {
+    font-size: 2.5rem;
   }
-  .blockquote {
-    margin: 20px 0;
-    padding: 20px;
-    /* background-color: #f9f9f9; */
-    border-left: 5px solid #ccc;
+
+  .sectionTitle {
+    font-size: 1.75rem;
   }
-  
-  .desc {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 18px;
+
+  .socialLinks {
+    flex-direction: column;
   }
+
+  .socialLink {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,89 +1,73 @@
-.container {
-   width: 60px;
-   height: 25px;
-   border: 1.5px solid;
-   border-radius: 30px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 5px;
-   position: relative; 
-   /* margin-left: 45%; */
-   margin: 0 1em;
+.toggle {
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
 }
-.ball {
-    width: 23px;
-    height: 21px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-   
+
+.toggleTrack {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: rgb(219, 234, 254);
+  transition: background-color 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  gap: 4px;
 }
-@media screen and (min-width: 750px) {
-  .container {
-    margin-left: 40px;
-  }
- 
+
+/* .toggleThumb {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(59, 130, 246);
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+} */
+
+.iconWrapper {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
-@media screen and (min-width: 803px) {
-  .container {
-    margin-left: 10px;
-  }
- 
+
+.sunIcon {
+  color: rgb(234, 179, 8);
 }
-@media screen and (max-width: 768px) {
-    .container {
-      align-items: center;
-      margin-left: 35px;
-    }
-  
+
+.moonIcon {
+  color: rgb(234, 179, 8);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid rgb(59, 130, 246);
+  outline-offset: 2px;
+}
+
+/* Dark mode styles */
+:global(.dark) .toggleTrack {
+  background-color: rgb(30, 41, 59);
+}
+
+:global(.dark) .toggleThumb {
+  background-color: rgb(14, 165, 233);
+}
+
+@media (hover: hover) {
+  .toggle:hover .toggleTrack {
+    background-color: rgb(199, 224, 254);
   }
-  
-  @media screen and (min-width: 885px) {
-    .container {
-      margin-left: 6px;
-    }
-  
+
+  :global(.dark) .toggle:hover .toggleTrack {
+    background-color: rgb(40, 51, 69);
   }
-  @media screen and (min-width: 901px) {
-    .container {
-      margin-left: 8px;
-    }
-  
-  }
-  @media screen and (min-width: 880px) {
-    .container {
-      margin-left: 15px;
-    }
-  
-  }
-  @media screen and (min-width: 1260px) {
-    .container {
-      margin-left: 41%;
-    }
-  
-  }
-  @media screen and (min-width: 1854px) {
-    .container { 
-      margin-left: 59%;
-    }
-  
-  }
-  @media screen and (min-width: 1967px) {
-    .container { 
-      margin-left: 60%;
-    }
-  
-  }
-  @media screen and (min-width: 1990px) {
-    .container { 
-      margin-left: 60%;
-    }
-  
-  }
-  @media screen and (min-width: 2160px) {
-    .container { 
-      margin-left: 63%;
-    }
-  
-  }
+}
