@@ -75,7 +75,7 @@ export default function Register() {
         const signInResult = await signIn("credentials", {
           email: formData.email,
           password: formData.password,
-          redirect: false,
+      
         });
 
         if (signInResult?.error) {
