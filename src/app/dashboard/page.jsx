@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import { 
@@ -6,270 +6,262 @@ import {
   FileText, 
   Users, 
   MessageSquare, 
-  Settings, 
-  TrendingUp,
+  Settings,
   Eye,
   ThumbsUp,
   Clock,
   Plus,
   Search,
-  Filter,
-  MoreVertical,
   Edit,
   Trash2,
+  Menu,
+  X,
+  Upload,
   AlertCircle
 } from "lucide-react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "@/app/context/ThemeContext";
-import { useLanguage } from "@/app/context/LanguageContext";
-import Navbar from "../Navbar/Navbar";
-
-// Analytics Card Component
-const AnalyticsCard = ({ title, value, icon, trend }) => {
-  const trendColor = trend >= 0 ? styles.positive : styles.negative;
-  
-  return (
-    <motion.div 
-      className={styles.analyticsCard}
-      whileHover={{ scale: 1.02 }}
-    >
-      <div className={styles.cardIcon}>{icon}</div>
-      <div className={styles.cardContent}>
-        <h3>{title}</h3>
-        <p className={styles.value}>{value}</p>
-        <span className={`${styles.trend} ${trendColor}`}>
-          {trend}% from last month
-        </span>
-      </div>
-    </motion.div>
-  );
-};
-
-// Post List Item Component
-const PostListItem = ({ post, onEdit, onDelete }) => {
-  return (
-    <motion.div 
-      className={styles.postItem}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <div className={styles.postImage}>
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={80}
-          height={80}
-          objectFit="cover"
-        />
-      </div>
-      <div className={styles.postInfo}>
-        <h4>{post.title}</h4>
-        <p>{post.excerpt}</p>
-        <div className={styles.postMeta}>
-          <span><Clock size={14} /> {post.date}</span>
-          <span><Eye size={14} /> {post.views} views</span>
-          <span><MessageSquare size={14} /> {post.comments} comments</span>
-        </div>
-      </div>
-      <div className={styles.postActions}>
-        <button onClick={() => onEdit(post)} className={styles.editButton}>
-          <Edit size={16} />
-        </button>
-        <button onClick={() => onDelete(post.id)} className={styles.deleteButton}>
-          <Trash2 size={16} />
-        </button>
-      </div>
-    </motion.div>
-  );
-};
 
 const Dashboard = () => {
-  const { t } = useLanguage();
+  // State Management
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([
+    // Initial dummy data
+    {
+      id: 1,
+      title: "Sample Post",
+      content: "This is a sample post content",
+      excerpt: "Sample excerpt",
+      image: "/placeholder.jpg",
+      views: 0,
+      comments: 0,
+      createdAt: new Date().toISOString()
+    }
+  ]);
+  const [users, setUsers] = useState([
+    // Initial dummy data
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      role: "Admin",
+      avatar: "/default-avatar.jpg"
+    }
+  ]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filterStatus, setFilterStatus] = useState("all");
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Mock data for demonstration
-  const analyticsData = {
-    totalPosts: { value: 156, trend: 12 },
-    totalViews: { value: "23.5K", trend: 8 },
-    engagement: { value: "68%", trend: -3 },
-    comments: { value: 892, trend: 15 }
-  };
+  // Filter posts safely
+  const filteredPosts = posts.filter(post => {
+    if (!post) return false;
+    const searchLower = searchQuery.toLowerCase();
+    const titleMatch = post.title?.toLowerCase()?.includes(searchLower) || false;
+    const contentMatch = post.content?.toLowerCase()?.includes(searchLower) || false;
+    return titleMatch || contentMatch;
+  });
 
+  // Filter users safely
+  const filteredUsers = users.filter(user => {
+    if (!user) return false;
+    const searchLower = searchQuery.toLowerCase();
+    const nameMatch = user.name?.toLowerCase()?.includes(searchLower) || false;
+    const emailMatch = user.email?.toLowerCase()?.includes(searchLower) || false;
+    return nameMatch || emailMatch;
+  });
+
+  // Stats calculation with safe access
+  const stats = [
+    { 
+      title: "Total Posts", 
+      value: posts?.length || 0, 
+      icon: <FileText /> 
+    },
+    { 
+      title: "Total Views", 
+      value: posts?.reduce((acc, post) => acc + (post?.views || 0), 0) || 0,
+      icon: <Eye /> 
+    },
+    { 
+      title: "Total Users", 
+      value: users?.length || 0, 
+      icon: <Users /> 
+    },
+    { 
+      title: "Comments", 
+      value: posts?.reduce((acc, post) => acc + (post?.comments || 0), 0) || 0,
+      icon: <MessageSquare /> 
+    },
+  ];
+
+  // Fetch Data
   useEffect(() => {
-    // Simulating API call to fetch posts
-    const fetchPosts = async () => {
+    const fetchData = async () => {
+      setIsLoading(true);
       try {
-        // Replace with actual API call
-        const response = await fetch("/api/posts");
-        const data = await response.json();
-        setPosts(data);
+        // Fetch posts
+        const postsResponse = await fetch('/api/posts');
+        if (postsResponse.ok) {
+          const postsData = await postsResponse.json();
+          setPosts(postsData);
+        }
+
+        // Fetch users
+        const usersResponse = await fetch('/api/users');
+        if (usersResponse.ok) {
+          const usersData = await usersResponse.json();
+          setUsers(usersData);
+        }
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error('Error fetching data:', error);
+        // Keep the initial dummy data if fetch fails
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
-    fetchPosts();
+    fetchData();
   }, []);
 
-  const handleNewPost = () => {
-    // Implement new post creation logic
-  };
-
-  const handleEditPost = (post) => {
-    // Implement post editing logic
-  };
-
-  const handleDeletePost = (postId) => {
-    // Implement post deletion logic
-  };
-
   return (
-    <>
-    <Navbar />
-    <div className={styles.dashboard}>
+    <div className={styles.container}>
       {/* Sidebar */}
-      <nav className={styles.sidebar}>
-        <div className={styles.logo}>
-          <h2>Urban Blog</h2>
+      <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.open : styles.closed}`}>
+        <div className={styles.sidebarHeader}>
+          <h2>Blog Admin</h2>
+          <button 
+            className={styles.menuToggle}
+            onClick={() => setSidebarOpen(!isSidebarOpen)}
+          >
+            {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-        <ul className={styles.nav}>
-          <li 
-            className={activeTab === "overview" ? styles.active : ""}
+
+        <nav className={styles.navigation}>
+          <button 
+            className={`${styles.navItem} ${activeTab === "overview" ? styles.active : ""}`}
             onClick={() => setActiveTab("overview")}
           >
             <LayoutDashboard size={20} />
-            <span>{t('dashboard.overview')}</span>
-          </li>
-          <li 
-            className={activeTab === "posts" ? styles.active : ""}
+            <span>Overview</span>
+          </button>
+          <button 
+            className={`${styles.navItem} ${activeTab === "posts" ? styles.active : ""}`}
             onClick={() => setActiveTab("posts")}
           >
             <FileText size={20} />
-            <span>{t('dashboard.posts')}</span>
-          </li>
-          <li 
-            className={activeTab === "users" ? styles.active : ""}
+            <span>Posts</span>
+          </button>
+          <button 
+            className={`${styles.navItem} ${activeTab === "users" ? styles.active : ""}`}
             onClick={() => setActiveTab("users")}
           >
             <Users size={20} />
-            <span>{t('dashboard.users')}</span>
-          </li>
-          <li 
-            className={activeTab === "comments" ? styles.active : ""}
-            onClick={() => setActiveTab("comments")}
-          >
-            <MessageSquare size={20} />
-            <span>{t('dashboard.comments')}</span>
-          </li>
-          <li 
-            className={activeTab === "settings" ? styles.active : ""}
+            <span>Users</span>
+          </button>
+          <button 
+            className={`${styles.navItem} ${activeTab === "settings" ? styles.active : ""}`}
             onClick={() => setActiveTab("settings")}
           >
             <Settings size={20} />
-            <span>{t('dashboard.settings')}</span>
-          </li>
-        </ul>
-      </nav>
+            <span>Settings</span>
+          </button>
+        </nav>
+      </aside>
 
       {/* Main Content */}
-      <main className={styles.content}>
-        {/* Header */}
+      <main className={styles.mainContent}>
         <header className={styles.header}>
-          <h1>{t(`dashboard.${activeTab}`)}</h1>
-          <button 
-            className={styles.newPostButton}
-            onClick={handleNewPost}
-          >
-            <Plus size={20} />
-            {t('dashboard.newPost')}
-          </button>
+          <div className={styles.searchBar}>
+            <Search size={20} />
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </header>
 
-        {/* Analytics Section */}
-        <section className={styles.analytics}>
-          <AnalyticsCard
-            title={t('dashboard.totalPosts')}
-            value={analyticsData.totalPosts.value}
-            icon={<FileText size={24} />}
-            trend={analyticsData.totalPosts.trend}
-          />
-          <AnalyticsCard
-            title={t('dashboard.totalViews')}
-            value={analyticsData.totalViews.value}
-            icon={<Eye size={24} />}
-            trend={analyticsData.totalViews.trend}
-          />
-          <AnalyticsCard
-            title={t('dashboard.engagement')}
-            value={analyticsData.engagement.value}
-            icon={<ThumbsUp size={24} />}
-            trend={analyticsData.engagement.trend}
-          />
-          <AnalyticsCard
-            title={t('dashboard.comments')}
-            value={analyticsData.comments.value}
-            icon={<MessageSquare size={24} />}
-            trend={analyticsData.comments.trend}
-          />
-        </section>
-
-        {/* Posts Management Section */}
-        <section className={styles.postsSection}>
-          <div className={styles.postsHeader}>
-            <div className={styles.searchBar}>
-              <Search size={20} />
-              <input
-                type="text"
-                placeholder={t('dashboard.searchPosts')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-            <div className={styles.filters}>
-              <select
-                value={filterStatus}
-                onChange={(e) => setFilterStatus(e.target.value)}
-              >
-                <option value="all">{t('dashboard.allPosts')}</option>
-                <option value="published">{t('dashboard.published')}</option>
-                <option value="draft">{t('dashboard.drafts')}</option>
-              </select>
-            </div>
+        {/* Display loading state */}
+        {isLoading && (
+          <div className={styles.loading}>
+            <p>Loading...</p>
           </div>
+        )}
 
-          <div className={styles.postsList}>
-            {loading ? (
-              <div className={styles.loading}>
-                <div className={styles.spinner} />
-                <p>{t('dashboard.loading')}</p>
+        {/* Display content based on active tab */}
+        {!isLoading && (
+          <>
+            {/* Stats Grid */}
+            {activeTab === "overview" && (
+              <div className={styles.statsGrid}>
+                {stats.map((stat, index) => (
+                  <div key={index} className={styles.statCard}>
+                    <div className={styles.statIcon}>{stat.icon}</div>
+                    <div className={styles.statInfo}>
+                      <h3>{stat.title}</h3>
+                      <p>{stat.value}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ) : posts.length === 0 ? (
-              <div className={styles.noPosts}>
-                <AlertCircle size={48} />
-                <p>{t('dashboard.noPosts')}</p>
-              </div>
-            ) : (
-              posts.map(post => (
-                <PostListItem
-                  key={post.id}
-                  post={post}
-                  onEdit={handleEditPost}
-                  onDelete={handleDeletePost}
-                />
-              ))
             )}
-          </div>
-        </section>
+
+            {/* Posts Grid */}
+            {activeTab === "posts" && (
+              <div className={styles.postsGrid}>
+                {filteredPosts.map(post => (
+                  <div key={post.id} className={styles.postCard}>
+                    <div className={styles.postImage}>
+                      <Image
+                        src={post.image || "/placeholder.jpg"}
+                        alt={post.title}
+                        width={300}
+                        height={200}
+                        layout="responsive"
+                      />
+                    </div>
+                    <div className={styles.postContent}>
+                      <h3>{post.title}</h3>
+                      <p>{post.excerpt}</p>
+                      <div className={styles.postMeta}>
+                        <span><Clock size={14} /> {new Date(post.createdAt).toLocaleDateString()}</span>
+                        <span><Eye size={14} /> {post.views}</span>
+                        <span><MessageSquare size={14} /> {post.comments}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Users Grid */}
+            {activeTab === "users" && (
+              <div className={styles.usersGrid}>
+                {filteredUsers.map(user => (
+                  <div key={user.id} className={styles.userCard}>
+                    <div className={styles.userAvatar}>
+                      <Image
+                        src={user.avatar || "/default-avatar.jpg"}
+                        alt={user.name}
+                        width={60}
+                        height={60}
+                        className={styles.avatar}
+                      />
+                    </div>
+                    <div className={styles.userInfo}>
+                      <h3>{user.name}</h3>
+                      <p>{user.email}</p>
+                      <span className={styles.role}>{user.role}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
       </main>
     </div>
-    </>
   );
 };
 

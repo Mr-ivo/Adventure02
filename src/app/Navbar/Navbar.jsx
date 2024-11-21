@@ -1,5 +1,5 @@
-"use client";
-import React, { useState, useEffect, useContext } from "react";
+ "use client";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +8,6 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import DarkModeToggle from "../components/DarkModeToggle/DarkModeToggle";
 import styles from "./Navbar.module.css";
-import { ThemeContext } from "../context/ThemeContext";
 
 const menuItems = [
   { title: "Home", path: "/" },
@@ -47,7 +46,6 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const { data: session } = useSession(); // Get session data from NextAuth
 
-  const { mode, toggleMode, user, setUser } = useContext(ThemeContext);
   useEffect(() => {
     let timeoutId;
     const handleScroll = () => {
@@ -131,7 +129,7 @@ const Navbar = () => {
                     Logout
                   </button>
                 </>
-              ) : !session ? (
+              ) : (
                 <>
                   <Link href="/login" className={styles.authButton}>
                     Login
@@ -143,8 +141,6 @@ const Navbar = () => {
                     Register
                   </Link>
                 </>
-              ) : (
-                <h1>{user.username}</h1>
               )}
             </div>
           </div>

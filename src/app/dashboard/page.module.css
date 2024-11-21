@@ -1,227 +1,220 @@
-.dashboard {
-    display: flex;
-    min-height: 100vh;
-    background-color: var(--background);
-  }
-  
-  /* Sidebar Styles */
-  .sidebar {
-    width: 260px;
-    background-color: var(--card);
-    border-right: 1px solid var(--border);
-    padding: 2rem 1rem;
-    position: fixed;
-    height: 100vh;
-    overflow-y: auto;
-  }
-  
-  .logo {
-    padding: 0 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .logo h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-  }
-  
-  .nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    margin: 0.25rem 0;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--muted-foreground);
-  }
-  
-  .nav li:hover {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
-  }
-  
-  .nav li.active {
-    background-color: var(--primary);
-    color: white;
-  }
-  
-  /* Main Content Styles */
-  .content {
-    flex: 1;
-    margin-left: 260px;
-    padding: 2rem;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .newPostButton {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .newPostButton:hover {
-    background-color: var(--primary-dark);
-  }
-  
-  /* Analytics Section */
-  .analytics {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .analyticsCard {
-    background-color: var(--card);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-  }
-  
-  .cardIcon {
-    margin-bottom: 1rem;
-    color: var(--primary);
-  }
-  
-  .value {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-  }
-  
-  .trend {
-    font-size: 0.875rem;
-  }
-  
-  .trend.positive {
-    color: var(--success);
-  }
-  
-  .trend.negative {
-    color: var(--destructive);
-  }
-  
-  /* Posts Section */
-  .postsSection {
-    background-color: var(--card);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-  }
-  
-  .postsHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .searchBar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--background);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--border);
-    flex: 1;
-    max-width: 400px;
-  }
-  
-  .searchBar input {
-    border: none;
-    background: none;
-    outline: none;
-    width: 100%;
-    color: var(--foreground);
-  }
-  
-  .filters select {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--border);
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-  
-  /* Post List Item */
-  .postItem {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    border-bottom: 1px solid var(--border);
-  }
-  
-  .postImage {
-    flex-shrink: 0;
-    border-radius: 0.5rem;
-    overflow: hidden;
-  }
-  
-  .postInfo {
-    flex: 1;
-  }
-  
-  .postInfo h4 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.125rem;
-  }
-  
-  .postInfo p {
-    color: var(--muted-foreground);
-    margin: 0 0 0.5rem 0;
-  }
-  
-  .postMeta {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.875rem;
-    color: var(--muted-foreground);
-  }
-  
-  .postMeta span {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-  
-  .postActions {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .editButton,
-  .deleteButton {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .editButton {
-    background-color: green;
-  }
+
+/* Sidebar Styles */
+.sidebar {
+width: 260px;
+background-color: #ffffff;
+border-right: 1px solid #e0e0e0;
+padding: 1.5rem;
+transition: all 0.3s ease;
+}
+
+.sidebar.closed {
+width: 80px;
+}
+
+.sidebarHeader {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 2rem;
+}
+
+.sidebarHeader h2 {
+font-size: 1.5rem;
+font-weight: 600;
+color: #1a1a1a;
+}
+
+.navigation {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.navItem {
+display: flex;
+align-items: center;
+gap: 1rem;
+padding: 0.75rem 1rem;
+border-radius: 8px;
+border: none;
+background: none;
+color: #666;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+
+.navItem:hover {
+background-color: #f5f5f5;
+color: #1a1a1a;
+}
+
+.navItem.active {
+background-color: #f0f0f0;
+color: #1a1a1a;
+font-weight: 500;
+}
+
+/* Main Content Styles */
+.mainContent {
+flex: 1;
+padding: 2rem;
+overflow-y: auto;
+}
+
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 2rem;
+}
+
+.searchBar {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+background-color: #ffffff;
+padding: 0.5rem 1rem;
+border-radius: 8px;
+width: 300px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.searchBar input {
+border: none;
+outline: none;
+width: 100%;
+font-size: 0.9rem;
+}
+
+/* Stats Grid */
+.statsGrid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 1.5rem;
+margin-bottom: 2rem;
+}
+
+.statCard {
+background-color: #ffffff;
+padding: 1.5rem;
+border-radius: 12px;
+display: flex;
+align-items: center;
+gap: 1rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.statIcon {
+padding: 1rem;
+background-color: #f0f7ff;
+border-radius: 8px;
+color: #0066cc;
+}
+
+.statInfo h3 {
+font-size: 0.9rem;
+color: #666;
+margin-bottom: 0.5rem;
+}
+
+.statInfo p {
+font-size: 1.5rem;
+font-weight: 600;
+color: #1a1a1a;
+}
+
+/* Posts Grid */
+.postsGrid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 1.5rem;
+}
+
+.postCard {
+background-color: #ffffff;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.postImage {
+position: relative;
+height: 200px;
+}
+
+.postContent {
+padding: 1.5rem;
+}
+
+.postContent h3 {
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+color: #1a1a1a;
+}
+
+.postContent p {
+font-size: 0.9rem;
+color: #666;
+margin-bottom: 1rem;
+}
+
+.postMeta {
+display: flex;
+gap: 1rem;
+font-size: 0.8rem;
+color: #666;
+}
+
+.postMeta span {
+display: flex;
+align-items: center;
+gap: 0.25rem;
+}
+
+/* Users Grid */
+.usersGrid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 1.5rem;
+}
+
+.userCard {
+background-color: #ffffff;
+padding: 1.5rem;
+border-radius: 12px;
+display: flex;
+align-items: center;
+gap: 1rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.userAvatar {
+position: relative;
+width: 60px;
+height: 60px;
+}
+
+.avatar {
+border-radius: 50%;
+}
+
+.userInfo h3 {
+font-size: 1rem;
+color: #1a1a1a;
+margin-bottom: 0.25rem;
+}
+
+.userInfo p {
+font-size: 0.9rem;
+color: #666;
+margin-bottom: 0.25rem;
+}
+
+.role {
+font-size: 0.8rem;
+color: #0066cc;
+background-color: #f0f7ff;
+padding: 0.25rem 0.5rem;
+border-radius: 4px;
+}
